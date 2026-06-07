@@ -1,0 +1,88 @@
+/*Módulo de estilos para la cabecera del sitio, estilos generales del body y estilos para el banner*/
+@use 'variables' as var;
+@use 'mixins' as mix;
+
+/*Estilos generales*/
+body {
+    font-family: var.$generalFont;
+    font-weight: var.$generalWeight;
+    margin: 0;
+    padding: 0;
+}
+
+.bodyNoScroll {
+    overflow: hidden;
+}
+
+/*Estilos para la cabecera del sitio*/
+.header {
+    width: 100%; 
+    background-color: var.$bgHeader;
+    box-sizing: var.$marginBox;
+    position: fixed;
+    z-index: 1000;
+    @include mix.flexContainer(row, space-between, center, 0px);
+    @include mix.paddings(10px, 20px, 10px, 20px);
+
+    &__menu,
+    &__logo {
+        @include mix.icons(50px, 50px, 5px);
+    }
+
+    &__menu {
+        font-size: 40px;
+        color: #fff;
+        background-color: #333;
+        border: none;
+    }
+
+    &__shopping {
+        position: relative;
+        @include mix.icons(50px, 50px, 0px);
+
+        &--logo {
+            display: block;
+            width: 100%;
+            height: 100%;
+            fill: #fff;
+            border-radius: 5px;
+        }
+
+        &--counter {
+            position: absolute;
+            top: 4px;
+            left: 30px;
+            font-size: 12px;
+            background-color: brown;
+            opacity: 0;
+            @include mix.flexContainer(column, center, center, 0px);
+            @include mix.icons(16px, 16px, 50%);
+        }
+    }
+}
+
+.counterVisible {
+    opacity: 1;
+}
+
+/*Estilos para el banner*/
+.banner {
+    background-image: url("../img/Banner.webp");
+    background-position: 100% 30%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: var.$marginBox;
+    color: var.$whiteText;
+    text-align: center;
+    width: 100%;
+    @include mix.flexContainer(column, space-between, center, 10px);
+    @include mix.paddings(80px, 0px, 30px, 0px);
+
+    &__title {
+        @include mix.fontSizeFluid(16px, 2vw, 30px);
+    }
+
+    &__text {
+        @include mix.fontSizeFluid(11px, 1.7vw, 24px);
+    }
+}

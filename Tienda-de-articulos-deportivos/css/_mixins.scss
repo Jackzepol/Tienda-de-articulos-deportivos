@@ -1,0 +1,68 @@
+/*Módulo de mixins para estilos del sitio e-commerce*/
+@use 'variables' as var;
+
+/*Mixin para el contenedor de la cabecera*/
+@mixin flexContainer($direction, $justify, $align, $gapF) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gapF;
+}
+
+/*Mixin para el contenedor del cuerpo*/
+@mixin gridContainer($mode, $minW, $maxW, $gapG, $alignI) {
+    display: grid;
+    grid-template-columns: repeat($mode, minmax($minW, $maxW));
+    gap: $gapG;
+    align-items: $alignI;
+}
+
+/*mixin para los iconos de la cabecera y el carrito*/
+@mixin icons($height, $width, $radius) {
+    height: $height;
+    width: $width;
+    border-radius: $radius;
+}
+
+/*Mixin para el tamaño de las fuentes*/
+@mixin fontSizeFluid($min, $preferred, $max) {
+    font-size: Clamp($min, $preferred, $max);
+}
+
+/*Mixin para paddings*/
+@mixin paddings($top, $right, $down, $left) {
+    padding: $top $right $down $left;
+}
+
+@mixin cursorType($type) {
+    cursor: $type;
+}
+
+/*Herencia para botones*/
+%styleButtons {
+    background-color: var.$bgButton;
+    border: none;
+    border-radius: 7px;
+    color: var.$whiteText;
+}
+
+%styleButtonsBlack {
+    background-color: var.$bgButtonBlack;
+    border: none;
+    border-radius: 7px;
+    color: var.$whiteText;
+}
+
+%styleButtonsHover {
+    background-color: var.$bgLight;
+    border: 2px solid var.$generalBorder;
+    color: var.$generalText;
+}
+
+%styleButtonsDysabled {
+    background-color: var.$bgDisabled;
+    text-decoration: line-through;
+    text-decoration-color: var.$bgLight;
+    color: var.$generalText;
+}

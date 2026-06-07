@@ -1,0 +1,95 @@
+/*Módulo de estilos para lso diferentes tamaños de dispositivos*/
+@use 'variables' as var;
+@use 'mixins' as mix;
+
+/*Estilos para celulares y tabletas*/
+@media (max-width: 600px) {
+    .banner {
+        background-position: 100% 30%;
+        gap: 1px;
+        @include mix.paddings(70px, 15px, 15px, 15px);
+    
+        &__title {
+            margin-bottom: 5px;
+        }
+    }
+
+    .footer {
+        color: var.$generalText;
+        @include mix.flexContainer(column, space-between, center, 20px);  
+    }
+}
+
+@media (max-width: 450px) {
+    .cart {
+        min-width: 100%;
+    }
+}
+
+@media (hover: hover) {
+    .products__btn--buy:hover {
+        background-color: var.$bgLight;
+        border: 2px solid var.$generalBorder;
+        color: var.$generalText;
+    }
+}
+
+/*Estilos para modo oscuro*/
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var.$bgHeader;
+        color: var.$bgLight;
+    }
+
+    .products__item {
+        border: 1px solid #555555;
+
+    }
+
+    .products__btn--buy,
+    .products__btn--add {
+        background-color: var.$bgButtonBlack;
+    }
+
+    .menu {
+        background-color: var.$bgHeader;
+        box-shadow: var.$cartShadow;
+
+        &__button {
+            background-color: var.$bgHeader;    
+        }
+
+        &__navigation--text {
+            color: var.$whiteText;
+        }
+    }
+
+    .cart {
+        background-color: var.$bgHeader;
+        box-shadow: var.$cartShadow;
+
+        &__button {
+            background-color: var.$bgHeader;
+        }
+
+        &__item {
+            border-bottom: 1px solid var.$bgDisabled;
+        }
+
+        &__total--buy {
+            background-color: var.$bgButtonBlack;
+        }
+    } 
+    
+    .footer {
+        &__text {
+            color: var.$whiteText;
+        }
+
+        &__nav {
+            &--item {
+                color: var.$whiteText;
+            }
+        }
+    }
+}

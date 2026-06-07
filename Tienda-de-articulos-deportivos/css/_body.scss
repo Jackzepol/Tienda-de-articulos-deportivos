@@ -1,0 +1,71 @@
+/*Módulo de estilos para el cuerpo (productos del sitio)*/
+@use 'variables' as var;
+@use 'mixins' as mix;
+
+/*Estilos para el cuerpo de la página*/
+.products {
+    margin: 0 auto;
+    width: 90%;
+    box-sizing: var.$marginBox;
+    @include mix.gridContainer(auto-fit, 17.5rem, 1fr, 20px, baseline);
+    @include mix.paddings(30px, 20px, 30px, 20px);
+
+    &__item {
+        flex-grow: 1;
+        border: 1px solid #d0d0d0;
+        border-radius: 5px;
+        @include mix.flexContainer(column, flex-start, center, 0px);
+        @include mix.fontSizeFluid(32px, 3vw, 32px);
+        @include mix.icons(31rem, 17.5rem, 5px);
+        @include mix.cursorType(pointer);
+    }
+
+    &__image {
+        margin-bottom: 15px;
+        margin-top: 15px;   
+        //border: 1px solid var.$bgDisabled;
+        @include mix.icons(19rem, 14.5rem, 5px)
+    }
+
+    &__description,
+    &__price,
+    &__btn--buy,
+    &__btn--add {
+        font-family: var.$generalFont;
+        font-weight: var.$generalWeight;
+        margin-bottom: 10px;
+        @include mix.fontSizeFluid(18px, 0.8vw, 20px);
+        
+    }
+
+    &__btn--buy {
+        height: 50px;
+        padding: 5px;
+        width: 90%;
+        transition: all 300ms ease;
+        @include mix.cursorType(pointer);
+        @extend %styleButtons;
+    }
+
+    &__btn--buy:hover {
+        @extend %styleButtonsHover;  
+    }
+
+    /*Estilo para botones cuando no hay stock*/
+    &__btn--disabled {
+        @extend %styleButtonsDysabled;    
+    }
+
+    &__btn--add {
+        height: 50px;
+        padding: 5px 0px;
+        width: 90%;
+        transition: all 300ms ease;
+        @include mix.cursorType(pointer);
+        @extend %styleButtons;
+    }
+
+    &__btn--add:hover {
+         @extend %styleButtonsHover;
+    }
+}

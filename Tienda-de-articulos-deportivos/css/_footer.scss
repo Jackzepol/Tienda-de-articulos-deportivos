@@ -1,0 +1,28 @@
+/*Módulo de estilos para el footer del sitio e-commerce*/
+@use 'variables' as var;
+@use 'mixins' as mix;
+
+/*Estilos para el footer de la página*/
+.division {
+    width: 100%;
+    border: none;
+    height: 1px;
+    background-color: #7c7c7c;
+    padding: 0;
+}
+
+.footer {
+    color: var.$generalText;
+    @include mix.flexContainer(row, space-between, center, 10px);
+    @include mix.fontSizeFluid(14px, 0.9vw, 16px);
+    @include mix.paddings(20px, 20px, 20px, 20px);
+
+    &__nav {
+        @include mix.flexContainer(row, space-between, center, 20px);
+
+        &--item {
+            color: var.$generalText;
+            text-decoration: none;
+        }
+    }    
+}
