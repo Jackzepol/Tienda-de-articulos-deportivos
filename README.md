@@ -25,7 +25,7 @@ Funcionalidades del carrito
 - Guardar el estado del carrito incluso al cerrar la página  
 - Reconstrucción automática del carrito al cargar el sitio  
 
----Tecnologías utilizadas
+Tecnologías utilizadas
 
 - **HTML5**  
 - **CSS3**  
